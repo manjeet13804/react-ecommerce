@@ -1,0 +1,18 @@
+.content{
+    display: flex;
+    min-width: 400px;
+    height: 200px;
+    flex-grow: 1;
+    margin: 20px ;
+    padding: 20px;
+}
+.toolbar{
+    display: flex;
+    flex-grow: 1;
+    
+}
+@media screen and (max-width : 600px) {
+    .content{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,12 @@
+.cardContents{
+    display: flex;
+    justify-content: space-evenly;
+}
+.cartAction{
+    justify-content: space-between;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
