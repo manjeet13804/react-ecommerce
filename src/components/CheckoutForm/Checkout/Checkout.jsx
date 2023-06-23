@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import AddressForm from '../AddressForm';
 import Review from '../Review';
-const Checkout = ({ cart, onCaptureCheckout , subtotal, totalItems}) => {
-  const [step,setStep]=useState(false)
+import { useDispatch } from 'react-redux';
+import {handleShipping} from '../../../redux/reducers/shipping'
+const Checkout = () => {
+  const [step, setStep] = useState(false)
+  const dispatch =useDispatch();
   const test = (data) => {
-    onCaptureCheckout(data)
+    dispatch(handleShipping(data))
     setStep(true)
   };
+  
   return <>
-   { !step &&<AddressForm test={test} />}
-   { step &&<Review subtotal={subtotal} totalItems={totalItems} />}
+    {!step && <AddressForm test={test} />}
+    {step && <Review  />}
   </>
 };
 

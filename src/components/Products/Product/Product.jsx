@@ -1,19 +1,28 @@
 import React from 'react';
 import './styles.css';
-import {AiOutlineShoppingCart} from "react-icons/ai"
-const Product = ({ product, onAddToCart }) => {
-  const handleAddToCart = () => onAddToCart(product.id);
+import { useSelector } from 'react-redux';
+import { AiOutlineShoppingCart } from "react-icons/ai"
+import { useDispatch } from 'react-redux';
+import { handleAddToCart, handleSubtotal,handleTotalItem } from '../../../redux/reducers/cart';
+const Product = ({ product }) => {
+  const list = useSelector((state) => state.list)
+  const cart = useSelector((state) => state.cart)
+  const dispatch = useDispatch()
+  const handleCart = async (productId) => {
+    const item = await list.filter(itemdata => itemdata.id === productId)
+     dispatch(handleAddToCart(item))
+  };
+
   return (
     <div className="root">
-      <div className="media" />
-        <section className="cardContent">
-          <h2>{product.name}</h2><br/>
-          <img src={require("/"+product.imageUrl)} alt="image" /><br/>
-          Rs {product.price}<br/>
-          {product.description}<br/>
-        </section>
+      <section className="cardContent">
+        <h2>{product.name}</h2><br />
+        <img src={require("/" + product.imageUrl)} alt="image" /><br />
+        Rs {product.price}<br />
+        {product.description}<br />
+      </section>
       <div className="cardActions">
-        <i aria-label="Add to Cart" onClick={handleAddToCart}>
+        <i aria-label="Add to Cart" onClick={() => handleCart(product.id)}>
           <AiOutlineShoppingCart />
         </i>
       </div>

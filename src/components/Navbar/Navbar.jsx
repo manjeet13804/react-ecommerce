@@ -3,9 +3,11 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link, useLocation } from 'react-router-dom';
 import "./styles.css"
 import logo from '../../assets/commerce.png';
-
-const PrimarySearchAppBar = ({ totalItems }) => {
+import { useDispatch,useSelector } from 'react-redux';
+const PrimarySearchAppBar = () => {
   const location = useLocation();
+  const dispatch = useDispatch()
+  const totalItems =useSelector((state)=> state.cart.totalItem)
   return (
     <>
       <header  >
@@ -20,7 +22,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
               <Link to="/cart">
                 <span aria-label="Show cart items" >
                   <AiOutlineShoppingCart className='cart' />
-                  <i className="fa badge" >
+                  <i className="badge text-bg-secondary" >
                     {totalItems} </i>
                 </span>
               </Link>

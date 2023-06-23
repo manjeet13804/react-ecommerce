@@ -1,9 +1,6 @@
 .root{
     max-width: 100%;
 }
-.media{
-    height: 0;
-}
 .cardActions{
     display: flex;
     justify-content: flex-end;
@@ -19,6 +16,6 @@
 }
 .cardContent img{
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 100px;
+    object-fit:contain;
 }

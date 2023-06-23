@@ -26,9 +26,9 @@ const AddressForm = ({ test }) => {
             <br />
             <div style={{ display: 'flex', justifyContent: 'space-evenly',  marginLeft: "-80%" }}>
               <Link to="/cart">
-                <button >Back to Cart</button>
+                <button className='btn btn-success'>Back</button>
               </Link>
-              <button type="submit">Next</button>
+              <button className='btn btn-success' type="submit">Next</button>
             </div>
           </section>
         </form>
